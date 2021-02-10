@@ -1,13 +1,9 @@
-LA NACION -
+#Restaurants app
+This app consumes restaurants from the yelp api and displays using react and node
 
-PARA CORRER UTILICE LOS SIG. COMANDOS
--NODE SERVER.JS
--NPM START
+Visit https://restaurant-app-yelp-api.herokuapp.com/
 
-
-
-
-
-
-FRANCO PAGELLA
-PAGELLA42@GMAIL.COM
+##run locally
+* npm i
+* npm start
+* node server.js
