@@ -38,14 +38,14 @@ app.get("/restaurants/:limit/:location/:category", function (req, res) {
     if (req.params.category != "null") {
       URL = URL + `&categories=${req.params.category}`;
     }
-    console.log(URL)
     request({ headers: headers, url: URL, method: "GET" }, (err, response) => {
-      console.log(response.body)
+      console.log(response)
       if (err) res.send({ status: 400, error: err });
       const data = JSON.parse(response.body).businesses;
       res.send({ status: 200, data });
     });
   } catch (error) {
+    console.log(error)
     res.send({ status: 400, error });
   }
 });
