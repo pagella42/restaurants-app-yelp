@@ -1,0 +1,11 @@
+# Restaurants app
+
+This is an app that consumes the yelp api and displays restaurants as asked by the user. 
+It uses react and node.js
+
+
+## How to run
+On the root run:
+* npm i
+* npm star
+* nodemon server.js
