@@ -2,9 +2,14 @@ let express = require("express");
 let app = express();
 let bodyParser = require("body-parser");
 const request = require("request");
+const path = require('path')
+
+const PORT = process.env.PORT || 8000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'build')))
+
 
 //allow foregin requests (ONLY FOR DEV MODE)
 app.use(function (req, res, next) {
@@ -17,7 +22,9 @@ app.use(function (req, res, next) {
   next();
 });
 
-//REMOVE API KEY
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended : false}))
+
 app.get("/restaurants/:limit/:location/:category", function (req, res) {
   try {
     const headers = {
@@ -43,7 +50,4 @@ app.get("/restaurants/:limit/:location/:category", function (req, res) {
   }
 });
 
-app.get("/", (req, res) => res.send({ state: "running" }));
-
-const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => console.log(`Running on port: ${PORT}`));
