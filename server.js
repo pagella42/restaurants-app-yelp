@@ -29,7 +29,7 @@ app.get("/restaurants/:limit/:location/:category", function (req, res) {
   try {
     const headers = {
       Authorization:
-        `Bearer ${PROCESS.ENV.YELP_API_KEY}`,
+        `Bearer ${process.env.YELP_API_KEY}`,
     };
     let URL = `https://api.yelp.com/v3/businesses/search?limit=${req.params.limit}`;
     if (req.params.location != "null") {
